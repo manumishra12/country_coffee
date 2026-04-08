@@ -42,10 +42,15 @@ export function Footer() {
               taste of tradition, reimagined for the modern coffee lover.
             </p>
             <div className="flex gap-4 mt-6">
-              {[Globe, Mail, MessageCircle].map((Icon, i) => (
+              {[
+                { Icon: Globe, href: "/about", label: "Website" },
+                { Icon: Mail, href: "mailto:hello@countrycoffee.com", label: "Email" },
+                { Icon: MessageCircle, href: "/contact", label: "Contact" },
+              ].map(({ Icon, href, label }) => (
                 <a
-                  key={i}
-                  href="#"
+                  key={label}
+                  href={href}
+                  aria-label={label}
                   className="w-10 h-10 rounded-full border border-cream/20 flex items-center justify-center hover:bg-cream/10 hover:border-cream/40 transition-all"
                 >
                   <Icon size={16} />

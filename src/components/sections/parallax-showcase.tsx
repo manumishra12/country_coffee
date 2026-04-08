@@ -21,6 +21,7 @@ export function ParallaxShowcase() {
   const y2 = useTransform(scrollYProgress, [0, 1], [50, -150]);
   const y3 = useTransform(scrollYProgress, [0, 1], [150, -50]);
   const rotate = useTransform(scrollYProgress, [0, 1], [-3, 3]);
+  const rotate2 = useTransform(scrollYProgress, [0, 1], [3, -3]);
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1.05, 0.95]);
 
   return (
@@ -73,7 +74,7 @@ export function ParallaxShowcase() {
             </div>
           </motion.div>
 
-          <motion.div style={{ y: y3, rotate: useTransform(scrollYProgress, [0, 1], [3, -3]) }} className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
+          <motion.div style={{ y: y3, rotate: rotate2 }} className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
             <Image src={images[2].src} alt={images[2].alt} fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-espresso/50 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6">

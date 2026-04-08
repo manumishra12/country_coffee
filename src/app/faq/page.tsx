@@ -9,7 +9,7 @@ const faqSections = [
     title: "Orders & Shipping",
     items: [
       { q: "How long does shipping take?", a: "Standard delivery takes 3-5 business days within India. Express shipping (1-2 days) is available at checkout for an additional fee." },
-      { q: "Do you offer free shipping?", a: "Yes! All orders over $50 qualify for free standard shipping. Use code FREESHIP for a shipping discount on smaller orders." },
+      { q: "Do you offer free shipping?", a: "Yes! All orders over ₹2,000 qualify for free standard shipping. Use code FREESHIP for a shipping discount on smaller orders." },
       { q: "Can I track my order?", a: "Absolutely. Once your order ships, you'll receive a tracking link via email. You can also track your order in real-time on our tracking page." },
       { q: "Do you ship internationally?", a: "Currently we ship within India. International shipping is coming soon — join our newsletter to be the first to know." },
     ],
