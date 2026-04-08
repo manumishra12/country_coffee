@@ -17,8 +17,9 @@ export function Hero() {
           unoptimized
           priority
         />
-        {/* Dark cinematic overlay — gradient from left for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-espresso/85 via-espresso/60 to-espresso/30" />
+        {/* Dark cinematic overlay — centered on mobile, left-heavy on desktop */}
+        <div className="absolute inset-0 bg-espresso/70 md:bg-transparent" />
+        <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-espresso/85 via-espresso/60 to-espresso/30" />
         {/* Bottom fade */}
         <div className="absolute inset-0 bg-gradient-to-t from-espresso/70 via-transparent to-espresso/20" />
         {/* Subtle grain on top */}
@@ -26,20 +27,20 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-24 lg:pt-20">
-        <div className="max-w-2xl">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 lg:pt-20">
+        <div className="max-w-2xl mx-auto text-center md:mx-0 md:text-left">
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: "60px" }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="h-[2px] bg-latte mb-8"
+            className="h-[2px] bg-latte mb-8 mx-auto md:mx-0"
           />
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-accent text-xs uppercase tracking-[0.4em] text-latte/80 mb-6"
+            className="font-accent text-[10px] sm:text-xs uppercase tracking-[0.4em] text-latte/80 mb-4 sm:mb-6"
           >
             Est. 2024 &mdash; Artisan Roasters
           </motion.p>
@@ -48,7 +49,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight text-cream"
+            className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight text-cream"
           >
             Fuel Your
             <br />
@@ -63,7 +64,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-8 text-lg text-cream/60 max-w-md leading-relaxed"
+            className="mt-6 sm:mt-8 text-sm sm:text-lg text-cream/60 max-w-md leading-relaxed mx-auto md:mx-0"
           >
             Hand-roasted in small batches, sourced from the world&apos;s finest
             farms. Experience coffee the way it was meant to be.
@@ -73,18 +74,18 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="mt-10 flex flex-wrap gap-4"
+            className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 items-center md:items-start"
           >
             <Link
               href="/shop"
-              className="group inline-flex items-center gap-3 bg-cream text-espresso px-8 py-4 rounded-full font-accent text-sm uppercase tracking-[0.15em] hover:bg-latte transition-all duration-300"
+              className="group inline-flex items-center gap-3 bg-cream text-espresso px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-accent text-xs sm:text-sm uppercase tracking-[0.15em] hover:bg-latte transition-all duration-300 w-full sm:w-auto justify-center"
             >
               Shop Now
               <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
             </Link>
             <Link
               href="/about"
-              className="inline-flex items-center gap-3 border border-cream/30 text-cream px-8 py-4 rounded-full font-accent text-sm uppercase tracking-[0.15em] hover:bg-cream hover:text-espresso transition-all duration-300"
+              className="inline-flex items-center gap-3 border border-cream/30 text-cream px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-accent text-xs sm:text-sm uppercase tracking-[0.15em] hover:bg-cream hover:text-espresso transition-all duration-300 w-full sm:w-auto justify-center"
             >
               Our Story
             </Link>
