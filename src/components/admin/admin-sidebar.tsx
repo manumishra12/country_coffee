@@ -24,75 +24,79 @@ function isActive(pathname: string, href: string) {
   return pathname.startsWith(href);
 }
 
-export function AdminNavbar({ open, onToggle }: { open: boolean; onToggle: () => void }) {
+export function AdminSidebar({ open, onToggle }: { open: boolean; onToggle: () => void }) {
   const pathname = usePathname();
+
+  const sidebarContent = (
+    <div className="flex flex-col h-full">
+      {/* Logo */}
+      <div className="px-5 py-6 flex items-center justify-between">
+        <Link href="/admin" className="flex items-center gap-3">
+          <Image src="/logo.png" alt="Country Coffee" width={38} height={38} className="rounded-xl" />
+          <div>
+            <p className="text-cream font-display text-[17px] leading-tight">Country Coffee</p>
+            <p className="text-cream/40 text-[9px] font-accent uppercase tracking-[0.2em]">Admin</p>
+          </div>
+        </Link>
+        <button onClick={onToggle} aria-label="Close menu" className="lg:hidden text-cream/50 hover:text-cream">
+          <X className="w-5 h-5" />
+        </button>
+      </div>
+
+      {/* Divider */}
+      <div className="mx-5 border-t border-cream/10" />
+
+      {/* Nav */}
+      <nav className="flex-1 px-3 py-5 space-y-1">
+        {navItems.map((item) => {
+          const active = isActive(pathname, item.href);
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => { if (window.innerWidth < 1024) onToggle(); }}
+              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-accent transition-all ${
+                active
+                  ? "bg-mocha/20 text-latte border-l-2 border-latte"
+                  : "text-cream/60 hover:text-cream hover:bg-white/5"
+              }`}
+            >
+              <item.icon className="w-[18px] h-[18px]" />
+              {item.label}
+            </Link>
+          );
+        })}
+      </nav>
+
+      {/* Bottom */}
+      <div className="px-3 pb-6 space-y-1">
+        <div className="mx-2 mb-3 border-t border-cream/10" />
+        <Link
+          href="/"
+          className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-accent text-cream/40 hover:text-cream hover:bg-white/5 transition-all"
+        >
+          <Store className="w-[18px] h-[18px]" />
+          Back to Store
+        </Link>
+        <button
+          onClick={logout}
+          className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-accent text-cream/40 hover:text-red-400 hover:bg-red-400/5 transition-all"
+        >
+          <LogOut className="w-[18px] h-[18px]" />
+          Sign Out
+        </button>
+      </div>
+    </div>
+  );
 
   return (
     <>
-      {/* Top Navigation Bar */}
-      <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-latte-light/40">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link href="/admin" className="flex items-center gap-2.5 shrink-0">
-              <Image src="/logo.png" alt="Country Coffee" width={36} height={36} className="rounded-lg" />
-              <div className="hidden sm:block">
-                <p className="font-display text-base text-espresso leading-tight">Country Coffee</p>
-                <p className="text-[9px] font-accent uppercase tracking-[0.2em] text-warm-gray">Admin</p>
-              </div>
-            </Link>
+      {/* Desktop Sidebar — fixed left */}
+      <aside className="hidden lg:block fixed inset-y-0 left-0 w-64 bg-espresso z-40">
+        {sidebarContent}
+      </aside>
 
-            {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-1">
-              {navItems.map((item) => {
-                const active = isActive(pathname, item.href);
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-[13px] font-accent transition-all ${
-                      active
-                        ? "bg-espresso text-cream"
-                        : "text-warm-gray hover:text-espresso hover:bg-cream-dark/50"
-                    }`}
-                  >
-                    <item.icon className="w-4 h-4" />
-                    {item.label}
-                  </Link>
-                );
-              })}
-            </nav>
-
-            {/* Right Actions */}
-            <div className="flex items-center gap-2">
-              <Link
-                href="/"
-                className="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-accent text-warm-gray hover:text-espresso hover:bg-cream-dark/50 transition-all"
-              >
-                <Store className="w-3.5 h-3.5" />
-                Store
-              </Link>
-              <button
-                onClick={logout}
-                className="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-accent text-warm-gray hover:text-red-500 hover:bg-red-50 transition-all"
-              >
-                <LogOut className="w-3.5 h-3.5" />
-                Sign Out
-              </button>
-              {/* Mobile Hamburger */}
-              <button
-                onClick={onToggle}
-                aria-label="Open menu"
-                className="lg:hidden w-10 h-10 rounded-lg flex items-center justify-center text-espresso hover:bg-cream-dark/50 transition-colors"
-              >
-                <Menu className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Overlay */}
       <AnimatePresence>
         {open && (
           <>
@@ -101,72 +105,29 @@ export function AdminNavbar({ open, onToggle }: { open: boolean; onToggle: () =>
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={onToggle}
-              className="fixed inset-0 bg-black/40 z-50 lg:hidden"
+              className="fixed inset-0 bg-black/50 z-40 lg:hidden"
             />
-            <motion.div
-              initial={{ y: "-100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "-100%" }}
+            <motion.aside
+              initial={{ x: -280 }}
+              animate={{ x: 0 }}
+              exit={{ x: -280 }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 left-0 right-0 z-50 bg-white rounded-b-2xl shadow-xl lg:hidden"
+              className="fixed inset-y-0 left-0 w-64 bg-espresso z-50 lg:hidden"
             >
-              <div className="p-5">
-                {/* Mobile Header */}
-                <div className="flex items-center justify-between mb-5">
-                  <Link href="/admin" className="flex items-center gap-2.5" onClick={onToggle}>
-                    <Image src="/logo.png" alt="Country Coffee" width={32} height={32} className="rounded-lg" />
-                    <p className="font-display text-base text-espresso">Country Coffee</p>
-                  </Link>
-                  <button onClick={onToggle} aria-label="Close menu" className="w-10 h-10 rounded-lg flex items-center justify-center text-warm-gray hover:text-espresso hover:bg-cream-dark/50 transition-colors">
-                    <X className="w-5 h-5" />
-                  </button>
-                </div>
-
-                {/* Mobile Nav Links */}
-                <nav className="space-y-1">
-                  {navItems.map((item) => {
-                    const active = isActive(pathname, item.href);
-                    return (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        onClick={onToggle}
-                        className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-accent transition-all ${
-                          active
-                            ? "bg-espresso text-cream"
-                            : "text-espresso/70 hover:text-espresso hover:bg-cream-dark/40"
-                        }`}
-                      >
-                        <item.icon className="w-[18px] h-[18px]" />
-                        {item.label}
-                      </Link>
-                    );
-                  })}
-                </nav>
-
-                {/* Mobile Footer Actions */}
-                <div className="mt-4 pt-4 border-t border-latte-light/30 flex gap-2">
-                  <Link
-                    href="/"
-                    onClick={onToggle}
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-accent text-warm-gray border border-latte-light/30 hover:bg-cream-dark/40 transition-all"
-                  >
-                    <Store className="w-4 h-4" />
-                    Store
-                  </Link>
-                  <button
-                    onClick={logout}
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-accent text-red-500 border border-red-200 hover:bg-red-50 transition-all"
-                  >
-                    <LogOut className="w-4 h-4" />
-                    Sign Out
-                  </button>
-                </div>
-              </div>
-            </motion.div>
+              {sidebarContent}
+            </motion.aside>
           </>
         )}
       </AnimatePresence>
+
+      {/* Mobile Toggle */}
+      <button
+        onClick={onToggle}
+        aria-label="Open menu"
+        className="fixed top-4 left-4 z-30 lg:hidden w-11 h-11 rounded-xl bg-espresso text-cream flex items-center justify-center shadow-lg"
+      >
+        <Menu className="w-5 h-5" />
+      </button>
     </>
   );
 }

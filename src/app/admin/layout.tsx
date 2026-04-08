@@ -3,13 +3,13 @@
 import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { isAuthenticated } from "@/lib/admin-auth";
-import { AdminNavbar } from "@/components/admin/admin-sidebar";
+import { AdminSidebar } from "@/components/admin/admin-sidebar";
 import { AdminHeader } from "@/components/admin/admin-header";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [checked, setChecked] = useState(false);
 
   const isLoginPage = pathname === "/admin/login";
@@ -22,7 +22,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     }
   }, [isLoginPage, router]);
 
-  // Login page renders without nav
+  // Login page renders without sidebar/header
   if (isLoginPage) return <>{children}</>;
 
   // Wait for auth check
@@ -36,10 +36,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   return (
     <div className="min-h-screen bg-cream">
-      <AdminNavbar open={menuOpen} onToggle={() => setMenuOpen(!menuOpen)} />
-      <div className="max-w-[1400px] mx-auto">
+      <AdminSidebar open={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} />
+      <div className="lg:ml-64 min-h-screen flex flex-col">
         <AdminHeader />
-        <main className="px-4 sm:px-6 lg:px-8 pb-8">{children}</main>
+        <main className="flex-1 p-4 sm:p-6 lg:p-8">{children}</main>
       </div>
     </div>
   );
