@@ -14,7 +14,7 @@ export default function ContactPage() {
 
   return (
     <section className="pt-32 pb-24 min-h-screen bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -26,7 +26,7 @@ export default function ContactPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="font-display text-5xl md:text-6xl font-bold text-espresso mb-6"
+          className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-espresso mb-6"
         >
           Contact Us
         </motion.h1>
@@ -40,7 +40,7 @@ export default function ContactPage() {
           want to say hello? We&apos;d love to hear from you.
         </motion.p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}

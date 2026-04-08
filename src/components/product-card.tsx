@@ -39,7 +39,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <motion.button
           onClick={(e) => { e.preventDefault(); toggleItem(product.id); }}
           whileTap={{ scale: 0.85 }}
-          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 w-9 h-9 sm:w-10 sm:h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-sm hover:bg-white transition-colors"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 w-10 h-10 sm:w-11 sm:h-11 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-sm hover:bg-white transition-colors"
         >
           <Heart size={15} fill={wishlisted ? "#e74c3c" : "none"} stroke={wishlisted ? "#e74c3c" : "currentColor"} strokeWidth={1.5} />
         </motion.button>
@@ -51,7 +51,7 @@ export function ProductCard({ product }: ProductCardProps) {
           }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 z-20 w-9 h-9 sm:w-11 sm:h-11 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white shadow-lg"
+          className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 z-20 w-10 h-10 sm:w-11 sm:h-11 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white shadow-lg"
         >
           <ShoppingBag size={14} />
         </motion.button>

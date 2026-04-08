@@ -92,7 +92,7 @@ export default function ShopPage() {
           <div className="flex items-center justify-between gap-3">
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full font-accent text-xs transition-all ${
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-full font-accent text-xs transition-all ${
                 showFilters || activeFilters > 0 ? "bg-mocha text-cream" : "border border-espresso/15 text-espresso/60 hover:border-espresso/30"
               }`}
             >
@@ -103,7 +103,7 @@ export default function ShopPage() {
             <div className="relative">
               <button
                 onClick={() => setSortOpen(!sortOpen)}
-                className="flex items-center gap-2 px-4 py-2 rounded-full border border-espresso/15 font-accent text-xs text-espresso/60 hover:border-espresso/30 transition-colors"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-espresso/15 font-accent text-xs text-espresso/60 hover:border-espresso/30 transition-colors"
               >
                 {sortOptions.find((s) => s.value === sort)?.label}
                 <ChevronDown size={12} className={`transition-transform ${sortOpen ? "rotate-180" : ""}`} />

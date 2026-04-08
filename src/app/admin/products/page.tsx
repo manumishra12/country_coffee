@@ -81,11 +81,11 @@ export default function AdminProductsPage() {
             <table className="w-full text-left">
               <thead>
                 <tr className="border-b border-latte-light/30 bg-cream/30">
-                  <th className="px-5 py-3 text-[11px] font-accent uppercase tracking-widest text-warm-gray">Product</th>
-                  <th className="px-5 py-3 text-[11px] font-accent uppercase tracking-widest text-warm-gray">Category</th>
-                  <th className="px-5 py-3 text-[11px] font-accent uppercase tracking-widest text-warm-gray">Price</th>
-                  <th className="px-5 py-3 text-[11px] font-accent uppercase tracking-widest text-warm-gray">Badge</th>
-                  <th className="px-5 py-3 text-[11px] font-accent uppercase tracking-widest text-warm-gray text-right">Actions</th>
+                  <th className="px-3 sm:px-5 py-3 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray">Product</th>
+                  <th className="px-3 sm:px-5 py-3 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray">Category</th>
+                  <th className="px-3 sm:px-5 py-3 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray">Price</th>
+                  <th className="px-3 sm:px-5 py-3 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray">Badge</th>
+                  <th className="px-3 sm:px-5 py-3 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray text-right">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -97,7 +97,7 @@ export default function AdminProductsPage() {
                     transition={{ delay: i * 0.03 }}
                     className="border-b border-latte-light/15 last:border-0 hover:bg-cream/30 transition-colors"
                   >
-                    <td className="px-5 py-3">
+                    <td className="px-3 sm:px-5 py-3">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-lg overflow-hidden bg-cream shrink-0">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -106,18 +106,18 @@ export default function AdminProductsPage() {
                         <span className="text-sm font-body text-espresso font-medium truncate max-w-[200px]">{product.name}</span>
                       </div>
                     </td>
-                    <td className="px-5 py-3">
+                    <td className="px-3 sm:px-5 py-3">
                       <span className="text-xs font-accent text-warm-gray capitalize">{product.category}</span>
                     </td>
-                    <td className="px-5 py-3 text-sm font-accent text-espresso">{formatPrice(product.price)}</td>
-                    <td className="px-5 py-3">
+                    <td className="px-3 sm:px-5 py-3 text-sm font-accent text-espresso">{formatPrice(product.price)}</td>
+                    <td className="px-3 sm:px-5 py-3">
                       {product.badge && (
                         <span className="inline-flex px-2 py-0.5 rounded-full text-[10px] font-accent uppercase bg-mocha/10 text-mocha">
                           {product.badge}
                         </span>
                       )}
                     </td>
-                    <td className="px-5 py-3">
+                    <td className="px-3 sm:px-5 py-3">
                       <div className="flex items-center justify-end gap-1">
                         <Link
                           href={`/admin/products/${product.id}/edit`}

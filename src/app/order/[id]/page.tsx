@@ -38,7 +38,7 @@ export default function OrderPage() {
       {/* Confetti animation */}
       {showConfetti && <Confetti />}
 
-      <div className="max-w-4xl mx-auto px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Success header */}
         <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: "spring", bounce: 0.4 }} className="text-center mb-12">
           <motion.div

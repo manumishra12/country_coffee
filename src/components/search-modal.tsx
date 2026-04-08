@@ -80,7 +80,7 @@ export function SearchModal({ isOpen, onClose }: { isOpen: boolean; onClose: () 
           >
             <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
               {/* Search input */}
-              <div className="flex items-center gap-3 px-6 py-5 border-b border-espresso/10">
+              <div className="flex items-center gap-3 px-4 sm:px-6 py-4 sm:py-5 border-b border-espresso/10">
                 <Search size={20} className="text-espresso/30 shrink-0" />
                 <input
                   ref={inputRef}
@@ -99,7 +99,7 @@ export function SearchModal({ isOpen, onClose }: { isOpen: boolean; onClose: () 
               </div>
 
               {/* Results */}
-              <div className="max-h-[400px] overflow-y-auto">
+              <div className="max-h-[300px] sm:max-h-[400px] overflow-y-auto">
                 {/* Suggestions when empty */}
                 {suggestions.length > 0 && (
                   <div className="p-4">
@@ -109,7 +109,7 @@ export function SearchModal({ isOpen, onClose }: { isOpen: boolean; onClose: () 
                         <button
                           key={s}
                           onClick={() => setQuery(s)}
-                          className="px-4 py-2 bg-cream rounded-full font-accent text-xs text-espresso/60 hover:bg-cream-dark transition-colors"
+                          className="px-4 py-2.5 bg-cream rounded-full font-accent text-xs text-espresso/60 hover:bg-cream-dark transition-colors"
                         >
                           {s}
                         </button>
@@ -135,7 +135,7 @@ export function SearchModal({ isOpen, onClose }: { isOpen: boolean; onClose: () 
                         key={product.id}
                         href={`/shop/${product.id}`}
                         onClick={onClose}
-                        className="flex items-center gap-4 px-4 py-3 rounded-2xl hover:bg-cream transition-colors group"
+                        className="flex items-center gap-4 px-4 py-3.5 sm:py-3 rounded-2xl hover:bg-cream transition-colors group"
                       >
                         <div className="w-12 h-12 rounded-xl bg-cream-dark overflow-hidden relative shrink-0">
                           <ProductImage src={product.image} alt={product.name} category={product.category} />

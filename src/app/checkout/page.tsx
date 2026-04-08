@@ -74,7 +74,7 @@ export default function CheckoutPage() {
 
   return (
     <section className="pt-28 pb-24 min-h-screen bg-cream-dark">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-10">
           <div className="flex items-center gap-2 mb-6">

@@ -33,12 +33,12 @@ export default function AdminCustomersPage() {
             <table className="w-full text-left">
               <thead>
                 <tr className="border-b border-latte-light/30 bg-cream/30">
-                  <th className="px-5 py-3 text-[11px] font-accent uppercase tracking-widest text-warm-gray">Customer</th>
-                  <th className="px-5 py-3 text-[11px] font-accent uppercase tracking-widest text-warm-gray">Email</th>
-                  <th className="px-5 py-3 text-[11px] font-accent uppercase tracking-widest text-warm-gray">City</th>
-                  <th className="px-5 py-3 text-[11px] font-accent uppercase tracking-widest text-warm-gray">Orders</th>
-                  <th className="px-5 py-3 text-[11px] font-accent uppercase tracking-widest text-warm-gray">Total Spent</th>
-                  <th className="px-5 py-3 text-[11px] font-accent uppercase tracking-widest text-warm-gray">Last Order</th>
+                  <th className="px-3 sm:px-5 py-3 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray">Customer</th>
+                  <th className="px-3 sm:px-5 py-3 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray">Email</th>
+                  <th className="px-3 sm:px-5 py-3 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray">City</th>
+                  <th className="px-3 sm:px-5 py-3 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray">Orders</th>
+                  <th className="px-3 sm:px-5 py-3 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray">Total Spent</th>
+                  <th className="px-3 sm:px-5 py-3 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray">Last Order</th>
                 </tr>
               </thead>
               <tbody>
@@ -50,16 +50,16 @@ export default function AdminCustomersPage() {
                     transition={{ delay: i * 0.03 }}
                     className="border-b border-latte-light/15 last:border-0 hover:bg-cream/30 transition-colors"
                   >
-                    <td className="px-5 py-3">
+                    <td className="px-3 sm:px-5 py-3">
                       <Link href={`/admin/customers/${customer.id}`} className="text-sm font-medium text-espresso hover:text-mocha transition-colors">
                         {customer.name}
                       </Link>
                     </td>
-                    <td className="px-5 py-3 text-sm text-warm-gray">{customer.email}</td>
-                    <td className="px-5 py-3 text-sm text-warm-gray">{customer.city}</td>
-                    <td className="px-5 py-3 text-sm font-accent text-espresso">{customer.totalOrders}</td>
-                    <td className="px-5 py-3 text-sm font-accent text-espresso">{formatPrice(customer.totalSpent)}</td>
-                    <td className="px-5 py-3 text-sm text-warm-gray">
+                    <td className="px-3 sm:px-5 py-3 text-sm text-warm-gray">{customer.email}</td>
+                    <td className="px-3 sm:px-5 py-3 text-sm text-warm-gray">{customer.city}</td>
+                    <td className="px-3 sm:px-5 py-3 text-sm font-accent text-espresso">{customer.totalOrders}</td>
+                    <td className="px-3 sm:px-5 py-3 text-sm font-accent text-espresso">{formatPrice(customer.totalSpent)}</td>
+                    <td className="px-3 sm:px-5 py-3 text-sm text-warm-gray">
                       {new Date(customer.lastOrderDate).toLocaleDateString("en-IN", { day: "numeric", month: "short" })}
                     </td>
                   </motion.tr>

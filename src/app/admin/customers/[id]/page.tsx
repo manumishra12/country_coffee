@@ -79,27 +79,27 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-latte-light/20 bg-cream/30">
-                <th className="px-5 py-2.5 text-[11px] font-accent uppercase tracking-widest text-warm-gray">Order</th>
-                <th className="px-5 py-2.5 text-[11px] font-accent uppercase tracking-widest text-warm-gray">Date</th>
-                <th className="px-5 py-2.5 text-[11px] font-accent uppercase tracking-widest text-warm-gray">Items</th>
-                <th className="px-5 py-2.5 text-[11px] font-accent uppercase tracking-widest text-warm-gray">Total</th>
-                <th className="px-5 py-2.5 text-[11px] font-accent uppercase tracking-widest text-warm-gray">Status</th>
+                <th className="px-3 sm:px-5 py-2.5 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray">Order</th>
+                <th className="px-3 sm:px-5 py-2.5 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray">Date</th>
+                <th className="px-3 sm:px-5 py-2.5 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray">Items</th>
+                <th className="px-3 sm:px-5 py-2.5 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray">Total</th>
+                <th className="px-3 sm:px-5 py-2.5 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray">Status</th>
               </tr>
             </thead>
             <tbody>
               {customerOrders.map((order) => (
                 <tr key={order.id} className="border-b border-latte-light/10 last:border-0 hover:bg-cream/30 transition-colors">
-                  <td className="px-5 py-3">
+                  <td className="px-3 sm:px-5 py-3">
                     <Link href={`/admin/orders/${order.id}`} className="text-sm font-accent text-espresso hover:text-mocha transition-colors">
                       {order.id}
                     </Link>
                   </td>
-                  <td className="px-5 py-3 text-sm text-warm-gray">
+                  <td className="px-3 sm:px-5 py-3 text-sm text-warm-gray">
                     {new Date(order.createdAt).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}
                   </td>
-                  <td className="px-5 py-3 text-sm text-warm-gray">{order.items.reduce((s, it) => s + it.quantity, 0)}</td>
-                  <td className="px-5 py-3 text-sm font-accent text-espresso">{formatPrice(order.total)}</td>
-                  <td className="px-5 py-3"><StatusBadge status={order.status} /></td>
+                  <td className="px-3 sm:px-5 py-3 text-sm text-warm-gray">{order.items.reduce((s, it) => s + it.quantity, 0)}</td>
+                  <td className="px-3 sm:px-5 py-3 text-sm font-accent text-espresso">{formatPrice(order.total)}</td>
+                  <td className="px-3 sm:px-5 py-3"><StatusBadge status={order.status} /></td>
                 </tr>
               ))}
             </tbody>

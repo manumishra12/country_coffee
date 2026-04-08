@@ -34,10 +34,10 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="fixed top-0 right-0 h-full w-full max-w-md bg-white z-[70] shadow-2xl flex flex-col"
+            className="fixed top-0 right-0 h-full w-full sm:max-w-md bg-white z-[70] shadow-2xl flex flex-col"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 py-5 border-b border-espresso/10">
+            <div className="flex items-center justify-between px-4 sm:px-6 py-5 border-b border-espresso/10">
               <h2 className="font-display text-xl font-semibold">Your Cart</h2>
               <button
                 onClick={onClose}
@@ -48,7 +48,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
             </div>
 
             {/* Items */}
-            <div className="flex-1 overflow-y-auto px-6 py-4">
+            <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4">
               {items.length === 0 ? (
                 <div className="flex flex-col items-center justify-center h-full text-espresso/40 gap-4">
                   <ShoppingBag size={48} strokeWidth={1} />
@@ -90,7 +90,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                             onClick={() =>
                               updateQuantity(item.id, item.quantity - 1)
                             }
-                            className="w-7 h-7 rounded-full border border-espresso/20 flex items-center justify-center hover:bg-espresso/5 transition-colors"
+                            className="w-9 h-9 rounded-full border border-espresso/20 flex items-center justify-center hover:bg-espresso/5 transition-colors"
                           >
                             <Minus size={12} />
                           </button>
@@ -101,7 +101,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                             onClick={() =>
                               updateQuantity(item.id, item.quantity + 1)
                             }
-                            className="w-7 h-7 rounded-full border border-espresso/20 flex items-center justify-center hover:bg-espresso/5 transition-colors"
+                            className="w-9 h-9 rounded-full border border-espresso/20 flex items-center justify-center hover:bg-espresso/5 transition-colors"
                           >
                             <Plus size={12} />
                           </button>
@@ -121,7 +121,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
             {/* Footer */}
             {items.length > 0 && (
-              <div className="px-6 py-5 border-t border-espresso/10 space-y-4">
+              <div className="px-4 sm:px-6 py-5 border-t border-espresso/10 space-y-4">
                 <div className="flex justify-between items-center">
                   <span className="font-accent text-sm uppercase tracking-wider text-espresso/60">
                     Subtotal

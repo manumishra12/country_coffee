@@ -23,7 +23,7 @@ export default function AboutPage() {
   return (
     <section className="pt-32 pb-24 min-h-screen">
       {/* Hero */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -35,7 +35,7 @@ export default function AboutPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="font-display text-5xl md:text-7xl font-bold text-espresso mb-8 max-w-4xl leading-tight"
+          className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-espresso mb-6 sm:mb-8 max-w-4xl leading-tight"
         >
           A Legacy of Flavour,
           <br />
@@ -52,13 +52,13 @@ export default function AboutPage() {
       </div>
 
       {/* Big image band */}
-      <div className="w-full h-[50vh] bg-espresso mb-24 relative overflow-hidden">
+      <div className="w-full h-[30vh] sm:h-[40vh] lg:h-[50vh] bg-espresso mb-16 sm:mb-24 relative overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
           <motion.h2
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="font-display text-6xl md:text-8xl lg:text-9xl font-bold text-cream/10 text-center select-none"
+            className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-9xl font-bold text-cream/10 text-center select-none"
           >
             Country
             <br />
@@ -68,7 +68,7 @@ export default function AboutPage() {
       </div>
 
       {/* Values */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -87,7 +87,7 @@ export default function AboutPage() {
           Our Values
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {values.map((value, i) => (
             <motion.div
               key={value.title}
@@ -95,7 +95,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-8 rounded-2xl bg-white border border-espresso/5 hover:border-espresso/15 transition-colors"
+              className="p-5 sm:p-6 md:p-8 rounded-2xl bg-white border border-espresso/5 hover:border-espresso/15 transition-colors"
             >
               <value.icon size={24} className="text-mocha mb-4" strokeWidth={1.5} />
               <h3 className="font-display text-xl font-semibold text-espresso mb-2">
@@ -110,7 +110,7 @@ export default function AboutPage() {
       </div>
 
       {/* Timeline */}
-      <div className="max-w-4xl mx-auto px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}

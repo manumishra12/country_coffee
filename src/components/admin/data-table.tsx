@@ -61,7 +61,7 @@ export function DataTable<T>({ columns, data, pageSize = 10, keyExtractor, onRow
               {columns.map((col) => (
                 <th
                   key={col.key}
-                  className={`px-4 py-3 text-[11px] font-accent uppercase tracking-widest text-warm-gray ${col.className || ""} ${col.sortable ? "cursor-pointer hover:text-espresso select-none" : ""}`}
+                  className={`px-3 sm:px-4 py-3 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray ${col.className || ""} ${col.sortable ? "cursor-pointer hover:text-espresso select-none" : ""}`}
                   onClick={col.sortable ? () => handleSort(col.key) : undefined}
                 >
                   <span className="inline-flex items-center gap-1">

@@ -57,7 +57,7 @@ export default function AdminCouponsPage() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           onSubmit={handleAdd}
-          className="bg-white rounded-2xl shadow-sm border border-latte-light/30 p-6"
+          className="bg-white rounded-2xl shadow-sm border border-latte-light/30 p-4 sm:p-6"
         >
           <h3 className="font-display text-base text-espresso mb-4">New Coupon</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

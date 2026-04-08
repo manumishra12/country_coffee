@@ -66,7 +66,7 @@ export function Navbar() {
                 className="transition-transform duration-300 group-hover:scale-105 sm:w-14 sm:h-14"
                 priority
               />
-              <span className="font-display text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-espresso group-hover:text-mocha transition-colors hidden xs:inline">
+              <span className="font-display text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-espresso group-hover:text-mocha transition-colors hidden sm:inline">
                 Country Coffee
               </span>
             </Link>
@@ -86,7 +86,7 @@ export function Navbar() {
             </div>
 
             {/* Actions */}
-            <div className="flex items-center gap-1 sm:gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               {/* Search */}
               <button
                 onClick={() => setSearchOpen(true)}
@@ -154,7 +154,7 @@ export function Navbar() {
               transition={{ duration: 0.3 }}
               className="md:hidden bg-cream/95 backdrop-blur-md border-t border-espresso/10 overflow-hidden"
             >
-              <div className="px-6 py-6 flex flex-col gap-5">
+              <div className="px-4 sm:px-6 py-6 flex flex-col gap-5">
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.href}
@@ -165,14 +165,14 @@ export function Navbar() {
                     <Link
                       href={link.href}
                       onClick={() => setMobileOpen(false)}
-                      className="font-display text-2xl text-espresso hover:text-mocha transition-colors"
+                      className="font-display text-xl sm:text-2xl text-espresso hover:text-mocha transition-colors"
                     >
                       {link.label}
                     </Link>
                   </motion.div>
                 ))}
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}>
-                  <Link href="/wishlist" onClick={() => setMobileOpen(false)} className="font-display text-2xl text-espresso hover:text-mocha transition-colors">
+                  <Link href="/wishlist" onClick={() => setMobileOpen(false)} className="font-display text-xl sm:text-2xl text-espresso hover:text-mocha transition-colors">
                     Wishlist {wishlistCount > 0 && `(${wishlistCount})`}
                   </Link>
                 </motion.div>

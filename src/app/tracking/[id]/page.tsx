@@ -58,7 +58,7 @@ export default function TrackingPage() {
 
   return (
     <section className="pt-28 pb-24 min-h-screen bg-cream-dark">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
           <Link href={`/order/${currentOrder.id}`} className="inline-flex items-center gap-2 font-accent text-xs uppercase tracking-[0.15em] text-espresso/50 hover:text-espresso transition-colors mb-4">
@@ -78,7 +78,7 @@ export default function TrackingPage() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Map Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -88,7 +88,7 @@ export default function TrackingPage() {
           >
             <div ref={mapRef} className="bg-white rounded-3xl shadow-sm overflow-hidden">
               {/* Animated Map */}
-              <div className="relative h-[400px] lg:h-[500px] bg-gradient-to-br from-sage/10 via-cream to-latte/10 overflow-hidden">
+              <div className="relative h-[280px] sm:h-[350px] lg:h-[500px] bg-gradient-to-br from-sage/10 via-cream to-latte/10 overflow-hidden">
                 {/* Map grid lines */}
                 <svg className="absolute inset-0 w-full h-full opacity-[0.06]" viewBox="0 0 100 100" preserveAspectRatio="none">
                   {Array.from({ length: 20 }).map((_, i) => (

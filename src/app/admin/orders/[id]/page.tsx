@@ -97,12 +97,12 @@ export default function OrderDetailPage({ params }: { params: Promise<{ id: stri
         <div className="lg:col-span-2 space-y-6">
           {/* Items */}
           <div className="bg-white rounded-2xl shadow-sm border border-latte-light/30 overflow-hidden">
-            <div className="px-5 sm:px-6 py-4 border-b border-latte-light/30">
+            <div className="px-4 sm:px-6 py-4 border-b border-latte-light/30">
               <h3 className="font-display text-base text-espresso">Order Items</h3>
             </div>
             <div className="divide-y divide-latte-light/20">
               {order.items.map((item) => (
-                <div key={item.id} className="px-5 sm:px-6 py-4 flex items-center gap-4">
+                <div key={item.id} className="px-4 sm:px-6 py-4 flex items-center gap-4">
                   <div className="w-12 h-12 rounded-lg overflow-hidden bg-cream flex-shrink-0">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
@@ -115,7 +115,7 @@ export default function OrderDetailPage({ params }: { params: Promise<{ id: stri
                 </div>
               ))}
             </div>
-            <div className="px-5 sm:px-6 py-4 bg-cream/30 space-y-1">
+            <div className="px-4 sm:px-6 py-4 bg-cream/30 space-y-1">
               <div className="flex justify-between text-sm text-warm-gray"><span>Subtotal</span><span>{formatPrice(order.subtotal)}</span></div>
               <div className="flex justify-between text-sm text-warm-gray"><span>Shipping</span><span>{order.shippingCost === 0 ? "Free" : formatPrice(order.shippingCost)}</span></div>
               <div className="flex justify-between text-sm text-warm-gray"><span>Tax</span><span>{formatPrice(order.tax)}</span></div>
@@ -197,12 +197,12 @@ export default function OrderDetailPage({ params }: { params: Promise<{ id: stri
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               rows={3}
-              className="w-full px-3 py-2 rounded-xl border border-latte-light bg-cream/30 text-sm text-espresso focus:outline-none focus:border-mocha resize-none font-body"
+              className="w-full px-4 py-3 rounded-xl border border-latte-light bg-cream/30 text-sm text-espresso focus:outline-none focus:border-mocha resize-none font-body"
               placeholder="Add internal notes..."
             />
             <button
               onClick={handleNotesSave}
-              className="mt-2 w-full py-2 rounded-xl border border-latte-light text-xs font-accent text-espresso hover:bg-cream transition-colors"
+              className="mt-2 w-full py-2.5 rounded-xl border border-latte-light text-xs font-accent text-espresso hover:bg-cream transition-colors"
             >
               Save Notes
             </button>

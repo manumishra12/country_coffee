@@ -85,13 +85,13 @@ export default function AdminOrdersPage() {
             <table className="w-full text-left">
               <thead>
                 <tr className="border-b border-latte-light/30 bg-cream/30">
-                  <th className="px-5 py-3 text-[11px] font-accent uppercase tracking-widest text-warm-gray">Order ID</th>
-                  <th className="px-5 py-3 text-[11px] font-accent uppercase tracking-widest text-warm-gray">Customer</th>
-                  <th className="px-5 py-3 text-[11px] font-accent uppercase tracking-widest text-warm-gray">Items</th>
-                  <th className="px-5 py-3 text-[11px] font-accent uppercase tracking-widest text-warm-gray">Total</th>
-                  <th className="px-5 py-3 text-[11px] font-accent uppercase tracking-widest text-warm-gray">Date</th>
-                  <th className="px-5 py-3 text-[11px] font-accent uppercase tracking-widest text-warm-gray">Status</th>
-                  <th className="px-5 py-3 text-[11px] font-accent uppercase tracking-widest text-warm-gray text-right">Action</th>
+                  <th className="px-3 sm:px-5 py-3 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray">Order ID</th>
+                  <th className="px-3 sm:px-5 py-3 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray">Customer</th>
+                  <th className="px-3 sm:px-5 py-3 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray">Items</th>
+                  <th className="px-3 sm:px-5 py-3 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray">Total</th>
+                  <th className="px-3 sm:px-5 py-3 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray">Date</th>
+                  <th className="px-3 sm:px-5 py-3 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray">Status</th>
+                  <th className="px-3 sm:px-5 py-3 text-[10px] sm:text-[11px] font-accent uppercase tracking-widest text-warm-gray text-right">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -103,15 +103,15 @@ export default function AdminOrdersPage() {
                     transition={{ delay: i * 0.03 }}
                     className="border-b border-latte-light/15 last:border-0 hover:bg-cream/30 transition-colors"
                   >
-                    <td className="px-5 py-3 text-sm font-accent text-espresso">{order.id}</td>
-                    <td className="px-5 py-3 text-sm text-espresso">{order.customerName}</td>
-                    <td className="px-5 py-3 text-sm text-warm-gray">{order.items.reduce((s, it) => s + it.quantity, 0)}</td>
-                    <td className="px-5 py-3 text-sm font-accent text-espresso">{formatPrice(order.total)}</td>
-                    <td className="px-5 py-3 text-sm text-warm-gray">
+                    <td className="px-3 sm:px-5 py-3 text-sm font-accent text-espresso">{order.id}</td>
+                    <td className="px-3 sm:px-5 py-3 text-sm text-espresso">{order.customerName}</td>
+                    <td className="px-3 sm:px-5 py-3 text-sm text-warm-gray">{order.items.reduce((s, it) => s + it.quantity, 0)}</td>
+                    <td className="px-3 sm:px-5 py-3 text-sm font-accent text-espresso">{formatPrice(order.total)}</td>
+                    <td className="px-3 sm:px-5 py-3 text-sm text-warm-gray">
                       {new Date(order.createdAt).toLocaleDateString("en-IN", { day: "numeric", month: "short" })}
                     </td>
-                    <td className="px-5 py-3"><StatusBadge status={order.status} /></td>
-                    <td className="px-5 py-3 text-right">
+                    <td className="px-3 sm:px-5 py-3"><StatusBadge status={order.status} /></td>
+                    <td className="px-3 sm:px-5 py-3 text-right">
                       <Link
                         href={`/admin/orders/${order.id}`}
                         aria-label={`View order ${order.id}`}

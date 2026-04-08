@@ -27,13 +27,13 @@ export function Footer() {
   return (
     <footer className="bg-espresso text-cream/80">
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-10 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
               <Image src="/logo.png" alt="Country Coffee" width={56} height={56} className="brightness-0 invert opacity-80" />
-              <h3 className="font-display text-3xl font-bold text-cream">
+              <h3 className="font-display text-2xl sm:text-3xl font-bold text-cream">
                 Country Coffee
               </h3>
             </div>
@@ -51,7 +51,7 @@ export function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-10 h-10 rounded-full border border-cream/20 flex items-center justify-center hover:bg-cream/10 hover:border-cream/40 transition-all"
+                  className="w-11 h-11 rounded-full border border-cream/20 flex items-center justify-center hover:bg-cream/10 hover:border-cream/40 transition-all"
                 >
                   <Icon size={16} />
                 </a>
@@ -84,7 +84,7 @@ export function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-cream/10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-cream/30 font-accent">
             &copy; {new Date().getFullYear()} Country Coffee. All rights
             reserved.

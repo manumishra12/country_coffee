@@ -61,7 +61,7 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save Product" }:
       className="grid grid-cols-1 lg:grid-cols-3 gap-6"
     >
       {/* Main Fields */}
-      <div className="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-latte-light/30 p-6 space-y-5">
+      <div className="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-latte-light/30 p-4 sm:p-6 space-y-5">
         <h3 className="font-display text-lg text-espresso">Product Information</h3>
 
         <div>
@@ -172,7 +172,7 @@ export function ProductForm({ initial, onSubmit, submitLabel = "Save Product" }:
 
       {/* Image + Save */}
       <div className="space-y-6">
-        <div className="bg-white rounded-2xl shadow-sm border border-latte-light/30 p-6">
+        <div className="bg-white rounded-2xl shadow-sm border border-latte-light/30 p-4 sm:p-6">
           <h3 className="font-display text-lg text-espresso mb-4">Product Image</h3>
           <div>
             <label className="block text-xs font-accent uppercase tracking-widest text-espresso/60 mb-2">Image URL *</label>
