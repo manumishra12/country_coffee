@@ -13,7 +13,7 @@ export function Hero() {
           src="https://miro.medium.com/1*Ne5nPK5gH1Z_a8QejwV1KA.gif"
           alt="Coffee making process"
           fill
-          className="object-cover object-center md:object-right"
+          className="object-cover object-[70%_center] md:object-right"
           unoptimized
           priority
         />
