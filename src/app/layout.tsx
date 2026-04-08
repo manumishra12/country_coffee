@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/navbar";
-import { Footer } from "@/components/footer";
 import { CartProvider } from "@/store/cart-context";
 import { WishlistProvider } from "@/store/wishlist-context";
 import { CouponProvider } from "@/store/coupon-context";
 import { RecentlyViewedProvider } from "@/store/recently-viewed";
-import { SplashScreen } from "@/components/splash-screen";
+import { AdminProvider } from "@/store/admin-context";
+import { LayoutShell } from "@/components/layout-shell";
 
 const playfair = Playfair_Display({
   variable: "--font-display",
@@ -69,11 +68,9 @@ export default function RootLayout({
           <WishlistProvider>
             <CouponProvider>
               <RecentlyViewedProvider>
-                <SplashScreen>
-                  <Navbar />
-                  <main className="flex-1">{children}</main>
-                  <Footer />
-                </SplashScreen>
+                <AdminProvider>
+                  <LayoutShell>{children}</LayoutShell>
+                </AdminProvider>
               </RecentlyViewedProvider>
             </CouponProvider>
           </WishlistProvider>

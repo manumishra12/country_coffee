@@ -160,6 +160,20 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
       setCurrentOrder(order);
       setItems([]);
+
+      // Bridge: persist to admin orders localStorage
+      try {
+        const adminOrders = JSON.parse(localStorage.getItem("cc-admin-orders") || "[]");
+        adminOrders.push({
+          ...order,
+          customerName: shipping.fullName,
+          customerEmail: shipping.email,
+          notes: "",
+          updatedAt: new Date().toISOString(),
+        });
+        localStorage.setItem("cc-admin-orders", JSON.stringify(adminOrders));
+      } catch { /* admin context will pick up on next load */ }
+
       return order;
     },
     [items]
