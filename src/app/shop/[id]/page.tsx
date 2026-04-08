@@ -129,7 +129,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                   <button onClick={() => setQty(qty + 1)} className="w-10 h-10 flex items-center justify-center text-espresso/50 hover:text-espresso">+</button>
                 </div>
                 <motion.button onClick={handleAdd} whileTap={{ scale: 0.97 }}
-                  className={`flex-1 flex items-center justify-center gap-2 py-3.5 rounded-full font-accent text-sm uppercase tracking-[0.15em] transition-all ${added ? "bg-sage text-white" : "bg-espresso text-cream hover:bg-mocha"}`}
+                  className={`flex-1 flex items-center justify-center gap-2 py-3.5 sm:py-4 rounded-full font-accent text-xs sm:text-sm uppercase tracking-[0.15em] transition-all ${added ? "bg-sage text-white" : "bg-espresso text-cream hover:bg-mocha"}`}
                 >
                   {added ? <><Check size={16} /> Added!</> : <><ShoppingBag size={16} /> Add to Cart</>}
                 </motion.button>
@@ -138,10 +138,10 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
 
             {/* Wishlist + Share */}
             <div className="flex gap-3 mt-4">
-              <button onClick={() => toggleItem(product.id)} className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-accent transition-all ${wishlisted ? "bg-red-50 text-red-500" : "border border-espresso/15 text-espresso/50 hover:border-espresso/30"}`}>
+              <button onClick={() => toggleItem(product.id)} className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-accent transition-all ${wishlisted ? "bg-red-50 text-red-500" : "border border-espresso/15 text-espresso/50 hover:border-espresso/30"}`}>
                 <Heart size={14} fill={wishlisted ? "currentColor" : "none"} /> {wishlisted ? "Saved" : "Save"}
               </button>
-              <button onClick={() => navigator.clipboard?.writeText(window.location.href)} className="flex items-center gap-2 px-4 py-2 rounded-full border border-espresso/15 text-espresso/50 hover:border-espresso/30 text-xs font-accent transition-colors">
+              <button onClick={() => navigator.clipboard?.writeText(window.location.href)} className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-espresso/15 text-espresso/50 hover:border-espresso/30 text-xs font-accent transition-colors">
                 <Share2 size={14} /> Share
               </button>
             </div>

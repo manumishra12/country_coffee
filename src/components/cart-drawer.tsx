@@ -132,7 +132,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                 </div>
                 <button
                   onClick={() => { onClose(); router.push("/checkout"); }}
-                  className="w-full bg-espresso text-cream py-4 rounded-full font-accent text-sm uppercase tracking-[0.15em] hover:bg-espresso-light transition-colors"
+                  className="w-full bg-espresso text-cream py-3.5 sm:py-4 rounded-full font-accent text-xs sm:text-sm uppercase tracking-[0.15em] hover:bg-espresso-light transition-colors"
                 >
                   Checkout
                 </button>

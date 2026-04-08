@@ -120,9 +120,9 @@ export default function CheckoutPage() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 20 }}
                   onSubmit={handleShippingSubmit}
-                  className="bg-white rounded-3xl p-8 shadow-sm"
+                  className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-sm"
                 >
-                  <h2 className="font-display text-2xl font-bold text-espresso mb-6">Shipping Details</h2>
+                  <h2 className="font-display text-xl sm:text-2xl font-bold text-espresso mb-5 sm:mb-6">Shipping Details</h2>
                   <div className="space-y-5">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <InputField label="Full Name" value={shipping.fullName} onChange={(v) => updateField("fullName", v)} required placeholder="John Doe" />
@@ -139,7 +139,7 @@ export default function CheckoutPage() {
                       <InputField label="ZIP Code" value={shipping.zip} onChange={(v) => updateField("zip", v)} required placeholder="400001" />
                     </div>
                   </div>
-                  <button type="submit" className="mt-8 w-full bg-espresso text-cream py-4 rounded-full font-accent text-sm uppercase tracking-[0.15em] hover:bg-mocha transition-colors flex items-center justify-center gap-2">
+                  <button type="submit" className="mt-6 sm:mt-8 w-full bg-espresso text-cream py-4 rounded-full font-accent text-xs sm:text-sm uppercase tracking-[0.15em] hover:bg-mocha transition-colors flex items-center justify-center gap-2">
                     Continue to Payment <ChevronRight size={16} />
                   </button>
                 </motion.form>
@@ -152,9 +152,9 @@ export default function CheckoutPage() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 20 }}
-                  className="bg-white rounded-3xl p-8 shadow-sm"
+                  className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-sm"
                 >
-                  <h2 className="font-display text-2xl font-bold text-espresso mb-6">Payment Method</h2>
+                  <h2 className="font-display text-xl sm:text-2xl font-bold text-espresso mb-5 sm:mb-6">Payment Method</h2>
                   <div className="space-y-4 mb-8">
                     {paymentMethods.map((method) => (
                       <button
@@ -196,11 +196,11 @@ export default function CheckoutPage() {
                     </motion.div>
                   )}
 
-                  <div className="flex gap-4">
-                    <button onClick={() => setStep("shipping")} className="flex-1 border border-espresso/20 text-espresso py-4 rounded-full font-accent text-sm uppercase tracking-[0.15em] hover:bg-espresso/5 transition-colors">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                    <button onClick={() => setStep("shipping")} className="flex-1 border border-espresso/20 text-espresso py-3.5 sm:py-4 rounded-full font-accent text-xs sm:text-sm uppercase tracking-[0.15em] hover:bg-espresso/5 transition-colors">
                       Back
                     </button>
-                    <button onClick={() => setStep("review")} className="flex-1 bg-espresso text-cream py-4 rounded-full font-accent text-sm uppercase tracking-[0.15em] hover:bg-mocha transition-colors flex items-center justify-center gap-2">
+                    <button onClick={() => setStep("review")} className="flex-1 bg-espresso text-cream py-3.5 sm:py-4 rounded-full font-accent text-xs sm:text-sm uppercase tracking-[0.15em] hover:bg-mocha transition-colors flex items-center justify-center gap-2">
                       Review Order <ChevronRight size={16} />
                     </button>
                   </div>
@@ -214,9 +214,9 @@ export default function CheckoutPage() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 20 }}
-                  className="bg-white rounded-3xl p-8 shadow-sm"
+                  className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-sm"
                 >
-                  <h2 className="font-display text-2xl font-bold text-espresso mb-6">Review Your Order</h2>
+                  <h2 className="font-display text-xl sm:text-2xl font-bold text-espresso mb-5 sm:mb-6">Review Your Order</h2>
 
                   {/* Shipping summary */}
                   <div className="p-5 bg-cream rounded-2xl mb-6">
@@ -258,14 +258,14 @@ export default function CheckoutPage() {
                     ))}
                   </div>
 
-                  <div className="flex gap-4">
-                    <button onClick={() => setStep("payment")} className="flex-1 border border-espresso/20 text-espresso py-4 rounded-full font-accent text-sm uppercase tracking-[0.15em] hover:bg-espresso/5 transition-colors">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                    <button onClick={() => setStep("payment")} className="flex-1 border border-espresso/20 text-espresso py-3.5 sm:py-4 rounded-full font-accent text-xs sm:text-sm uppercase tracking-[0.15em] hover:bg-espresso/5 transition-colors">
                       Back
                     </button>
                     <button
                       onClick={handlePlaceOrder}
                       disabled={processing}
-                      className="flex-1 bg-espresso text-cream py-4 rounded-full font-accent text-sm uppercase tracking-[0.15em] hover:bg-mocha transition-colors flex items-center justify-center gap-2 disabled:opacity-60"
+                      className="flex-1 bg-espresso text-cream py-3.5 sm:py-4 rounded-full font-accent text-xs sm:text-sm uppercase tracking-[0.15em] hover:bg-mocha transition-colors flex items-center justify-center gap-2 disabled:opacity-60"
                     >
                       {processing ? (
                         <>
@@ -291,7 +291,7 @@ export default function CheckoutPage() {
 
           {/* Order Summary Sidebar */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-3xl p-6 shadow-sm sticky top-28">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm sticky top-20 sm:top-28">
               <h3 className="font-display text-lg font-semibold text-espresso mb-5">Order Summary</h3>
               <div className="space-y-3 mb-6 max-h-[300px] overflow-y-auto">
                 {items.map((item) => (
@@ -376,8 +376,8 @@ function CouponInput({ subtotal }: { subtotal: number }) {
   return (
     <div>
       <div className="flex gap-2">
-        <input value={code} onChange={(e) => setCode(e.target.value)} placeholder="Coupon code" className="flex-1 px-3 py-2 rounded-lg bg-cream border border-transparent text-xs font-accent text-espresso placeholder:text-espresso/25 focus:outline-none focus:border-mocha" />
-        <button onClick={handleApply} disabled={!code.trim()} className="px-3 py-2 bg-espresso text-cream rounded-lg font-accent text-xs disabled:opacity-40">Apply</button>
+        <input value={code} onChange={(e) => setCode(e.target.value)} placeholder="Coupon code" className="flex-1 px-4 py-2.5 rounded-lg bg-cream border border-transparent text-xs font-accent text-espresso placeholder:text-espresso/25 focus:outline-none focus:border-mocha" />
+        <button onClick={handleApply} disabled={!code.trim()} className="px-4 py-2.5 bg-espresso text-cream rounded-lg font-accent text-xs disabled:opacity-40">Apply</button>
       </div>
       {message && <p className={`text-[10px] mt-1.5 font-accent ${message.includes("Invalid") || message.includes("Minimum") ? "text-red-400" : "text-sage"}`}>{message}</p>}
     </div>
