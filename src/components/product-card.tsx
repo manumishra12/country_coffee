@@ -74,7 +74,7 @@ export function ProductCard({ product }: ProductCardProps) {
           {product.description}
         </p>
         <p className="font-accent text-sm sm:text-base font-semibold text-espresso mt-1.5">
-          ${product.price.toFixed(2)}
+          ₹{product.price.toLocaleString("en-IN")}
         </p>
       </Link>
     </div>

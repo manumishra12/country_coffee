@@ -125,8 +125,8 @@ export default function OrderPage() {
                         <p className="font-display text-sm font-semibold text-espresso">{item.name}</p>
                       </td>
                       <td className="text-center px-5 py-4 font-accent text-sm text-espresso/60">{item.quantity}</td>
-                      <td className="text-right px-5 py-4 font-accent text-sm text-espresso/60">${item.price.toFixed(2)}</td>
-                      <td className="text-right px-5 py-4 font-accent text-sm font-medium text-espresso">${(item.price * item.quantity).toFixed(2)}</td>
+                      <td className="text-right px-5 py-4 font-accent text-sm text-espresso/60">₹{item.price.toLocaleString("en-IN")}</td>
+                      <td className="text-right px-5 py-4 font-accent text-sm font-medium text-espresso">₹{(item.price * item.quantity).toLocaleString("en-IN")}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -138,19 +138,19 @@ export default function OrderPage() {
               <div className="w-full max-w-xs space-y-2">
                 <div className="flex justify-between text-sm">
                   <span className="text-espresso/50 font-accent">Subtotal</span>
-                  <span className="font-accent">${currentOrder.subtotal.toFixed(2)}</span>
+                  <span className="font-accent">₹{currentOrder.subtotal.toLocaleString("en-IN")}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-espresso/50 font-accent">Shipping</span>
-                  <span className="font-accent">{currentOrder.shippingCost === 0 ? "Free" : `$${currentOrder.shippingCost.toFixed(2)}`}</span>
+                  <span className="font-accent">{currentOrder.shippingCost === 0 ? "Free" : `₹${currentOrder.shippingCost.toLocaleString("en-IN")}`}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-espresso/50 font-accent">Tax</span>
-                  <span className="font-accent">${currentOrder.tax.toFixed(2)}</span>
+                  <span className="font-accent">₹{Math.round(currentOrder.tax).toLocaleString("en-IN")}</span>
                 </div>
                 <div className="border-t border-espresso/10 pt-3 flex justify-between">
                   <span className="font-display font-bold text-espresso text-lg">Total</span>
-                  <span className="font-display font-bold text-espresso text-lg">${currentOrder.total.toFixed(2)}</span>
+                  <span className="font-display font-bold text-espresso text-lg">₹{Math.round(currentOrder.total).toLocaleString("en-IN")}</span>
                 </div>
               </div>
             </div>

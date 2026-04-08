@@ -1,17 +1,15 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { ClientVideo } from "@/components/client-video";
 
 export function VideoHeroBand() {
   const ref = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
-
-  useEffect(() => setMounted(true), []);
 
   const scale = useTransform(scrollYProgress, [0, 0.5], [0.85, 1]);
   const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
@@ -23,25 +21,11 @@ export function VideoHeroBand() {
         style={{ scale, opacity, borderRadius }}
         className="relative w-full h-[60vh] lg:h-[80vh] overflow-hidden"
       >
-        {/* Video Background — Coffee Making Process */}
-        {!mounted ? (
-          <div className="absolute inset-0 bg-espresso" />
-        ) : (
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+        <ClientVideo
+          src="https://videos.pexels.com/video-files/2836376/2836376-hd_1920_1080_24fps.mp4"
           poster="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1920&h=1080&fit=crop&q=80"
-        >
-          {/* Free coffee brewing video from coverr.co / pexels */}
-          <source
-            src="https://videos.pexels.com/video-files/2836376/2836376-hd_1920_1080_24fps.mp4"
-            type="video/mp4"
-          />
-        </video>
-        )}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-espresso/50" />

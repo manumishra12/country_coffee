@@ -20,10 +20,10 @@ const sortOptions: { value: SortOption; label: string }[] = [
 const roastLevels = ["light", "medium", "dark"] as const;
 
 const priceRanges = [
-  { label: "Under $20", min: 0, max: 20 },
-  { label: "$20 – $35", min: 20, max: 35 },
-  { label: "$35 – $50", min: 35, max: 50 },
-  { label: "Over $50", min: 50, max: Infinity },
+  { label: "Under ₹700", min: 0, max: 700 },
+  { label: "₹700 – ₹1,500", min: 700, max: 1500 },
+  { label: "₹1,500 – ₹2,500", min: 1500, max: 2500 },
+  { label: "Over ₹2,500", min: 2500, max: Infinity },
 ];
 
 export default function ShopPage() {

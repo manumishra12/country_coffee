@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import { ClientVideo } from "@/components/client-video";
 
 const coffeeImages = [
   {
@@ -62,19 +63,11 @@ export function CoffeeVideoSection() {
           viewport={{ once: true }}
           className="relative flex-shrink-0 w-[500px] lg:w-[700px] h-[350px] lg:h-[450px] rounded-3xl overflow-hidden group"
         >
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
+          <ClientVideo
+            src="https://videos.pexels.com/video-files/855564/855564-hd_1920_1080_24fps.mp4"
             poster="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1200&h=800&fit=crop&q=80"
-          >
-            <source
-              src="https://videos.pexels.com/video-files/855564/855564-hd_1920_1080_24fps.mp4"
-              type="video/mp4"
-            />
-          </video>
+            className="absolute inset-0 w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-espresso/60 via-transparent to-transparent" />
           <div className="absolute bottom-6 left-6 right-6 z-10">
             <p className="font-accent text-xs uppercase tracking-[0.2em] text-cream/70 mb-1">Video</p>

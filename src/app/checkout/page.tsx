@@ -28,7 +28,7 @@ export default function CheckoutPage() {
     fullName: "", email: "", phone: "", address: "", city: "", state: "", zip: "", country: "India",
   });
 
-  const shippingCost = totalPrice > 50 ? 0 : 5.99;
+  const shippingCost = totalPrice > 2000 ? 0 : 99;
   const tax = totalPrice * 0.08;
   const orderTotal = totalPrice + shippingCost + tax;
 
@@ -253,7 +253,7 @@ export default function CheckoutPage() {
                           <p className="font-display text-sm font-semibold text-espresso truncate">{item.name}</p>
                           <p className="text-xs text-espresso/40 font-accent">Qty: {item.quantity}</p>
                         </div>
-                        <p className="font-accent text-sm font-medium text-espresso">${(item.price * item.quantity).toFixed(2)}</p>
+                        <p className="font-accent text-sm font-medium text-espresso">₹{(item.price * item.quantity).toLocaleString("en-IN")}</p>
                       </div>
                     ))}
                   </div>
@@ -275,7 +275,7 @@ export default function CheckoutPage() {
                       ) : (
                         <>
                           <Lock size={14} />
-                          Place Order &middot; ${orderTotal.toFixed(2)}
+                          Place Order &middot; ₹{orderTotal.toLocaleString("en-IN")}
                         </>
                       )}
                     </button>
@@ -303,7 +303,7 @@ export default function CheckoutPage() {
                       <p className="text-xs font-display font-semibold text-espresso truncate">{item.name}</p>
                       <p className="text-[10px] text-espresso/40 font-accent">x{item.quantity}</p>
                     </div>
-                    <p className="text-xs font-accent font-medium text-espresso">${(item.price * item.quantity).toFixed(2)}</p>
+                    <p className="text-xs font-accent font-medium text-espresso">₹{(item.price * item.quantity).toLocaleString("en-IN")}</p>
                   </div>
                 ))}
               </div>
@@ -311,19 +311,19 @@ export default function CheckoutPage() {
               <div className="border-t border-espresso/10 pt-4 space-y-3">
                 <div className="flex justify-between text-sm">
                   <span className="text-espresso/50 font-accent">Subtotal</span>
-                  <span className="font-accent font-medium">${totalPrice.toFixed(2)}</span>
+                  <span className="font-accent font-medium">₹{totalPrice.toLocaleString("en-IN")}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-espresso/50 font-accent">Shipping</span>
-                  <span className="font-accent font-medium">{shippingCost === 0 ? <span className="text-sage">Free</span> : `$${shippingCost.toFixed(2)}`}</span>
+                  <span className="font-accent font-medium">{shippingCost === 0 ? <span className="text-sage">Free</span> : `₹${shippingCost.toLocaleString("en-IN")}`}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-espresso/50 font-accent">Tax (8%)</span>
-                  <span className="font-accent font-medium">${tax.toFixed(2)}</span>
+                  <span className="font-accent font-medium">₹{Math.round(tax).toLocaleString("en-IN")}</span>
                 </div>
                 <div className="border-t border-espresso/10 pt-3 flex justify-between">
                   <span className="font-display font-bold text-espresso">Total</span>
-                  <span className="font-display text-xl font-bold text-espresso">${orderTotal.toFixed(2)}</span>
+                  <span className="font-display text-xl font-bold text-espresso">₹{orderTotal.toLocaleString("en-IN")}</span>
                 </div>
               </div>
 
@@ -332,9 +332,9 @@ export default function CheckoutPage() {
                 <CouponInput subtotal={totalPrice} />
               </div>
 
-              {totalPrice < 50 && (
+              {totalPrice < 2000 && (
                 <p className="text-[10px] text-mocha font-accent mt-4 bg-mocha/5 p-3 rounded-xl text-center">
-                  Add ${(50 - totalPrice).toFixed(2)} more for free shipping!
+                  Add ₹{(2000 - totalPrice).toLocaleString("en-IN")} more for free shipping!
                 </p>
               )}
 
@@ -366,7 +366,7 @@ function CouponInput({ subtotal }: { subtotal: number }) {
         <div className="flex items-center gap-2">
           <Tag size={12} className="text-sage" />
           <span className="text-xs font-accent text-sage font-medium">{appliedCoupon.code}</span>
-          <span className="text-[10px] text-sage/70">−${getDiscount(subtotal).toFixed(2)}</span>
+          <span className="text-[10px] text-sage/70">−₹{Math.round(getDiscount(subtotal)).toLocaleString("en-IN")}</span>
         </div>
         <button onClick={removeCoupon} className="p-1 hover:bg-sage/10 rounded-full"><X size={12} className="text-sage" /></button>
       </div>

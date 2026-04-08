@@ -11,8 +11,8 @@ interface Coupon {
 
 const VALID_COUPONS: Coupon[] = [
   { code: "WELCOME10", discount: 10, minOrder: 0, description: "10% off your first order" },
-  { code: "BREW20", discount: 20, minOrder: 50, description: "20% off orders over $50" },
-  { code: "COFFEE15", discount: 15, minOrder: 30, description: "15% off orders over $30" },
+  { code: "BREW20", discount: 20, minOrder: 2000, description: "20% off orders over ₹2,000" },
+  { code: "COFFEE15", discount: 15, minOrder: 1000, description: "15% off orders over ₹1,000" },
   { code: "FREESHIP", discount: 5, minOrder: 0, description: "Free shipping equivalent" },
 ];
 
@@ -31,7 +31,7 @@ export function CouponProvider({ children }: { children: ReactNode }) {
   const applyCoupon = useCallback((code: string, orderTotal: number): { success: boolean; message: string } => {
     const coupon = VALID_COUPONS.find((c) => c.code.toUpperCase() === code.toUpperCase());
     if (!coupon) return { success: false, message: "Invalid coupon code" };
-    if (orderTotal < coupon.minOrder) return { success: false, message: `Minimum order of $${coupon.minOrder} required` };
+    if (orderTotal < coupon.minOrder) return { success: false, message: `Minimum order of ₹${coupon.minOrder.toLocaleString("en-IN")} required` };
     setAppliedCoupon(coupon);
     return { success: true, message: `${coupon.description} applied!` };
   }, []);

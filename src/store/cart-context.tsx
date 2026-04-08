@@ -138,7 +138,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const placeOrder = useCallback(
     (shipping: ShippingAddress, paymentMethod: string): Order => {
       const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-      const shippingCost = subtotal > 50 ? 0 : 5.99;
+      const shippingCost = subtotal > 2000 ? 0 : 99;
       const tax = subtotal * 0.08;
       const estimatedDate = new Date();
       estimatedDate.setDate(estimatedDate.getDate() + 5);

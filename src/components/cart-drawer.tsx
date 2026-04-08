@@ -83,7 +83,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                           </p>
                         )}
                         <p className="font-accent text-sm font-medium mt-1">
-                          ${item.price.toFixed(2)}
+                          ₹{item.price.toLocaleString("en-IN")}
                         </p>
                         <div className="flex items-center gap-3 mt-2">
                           <button
@@ -127,7 +127,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                     Subtotal
                   </span>
                   <span className="font-display text-xl font-semibold">
-                    ${totalPrice.toFixed(2)}
+                    ₹{totalPrice.toLocaleString("en-IN")}
                   </span>
                 </div>
                 <button

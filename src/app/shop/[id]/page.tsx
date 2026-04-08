@@ -120,7 +120,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
 
             {/* Price + Qty + CTA */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-2">
-              <span className="font-display text-3xl font-bold text-espresso">${product.price.toFixed(2)}</span>
+              <span className="font-display text-3xl font-bold text-espresso">₹{product.price.toLocaleString("en-IN")}</span>
               <div className="flex items-center gap-3 flex-1 w-full sm:w-auto">
                 {/* Quantity */}
                 <div className="flex items-center border border-espresso/15 rounded-full">

@@ -305,7 +305,7 @@ export default function TrackingPage() {
               <h3 className="font-accent text-[10px] uppercase tracking-[0.2em] text-espresso/40 mb-3">Order Summary</h3>
               <div className="flex items-center justify-between mb-3">
                 <p className="font-display font-semibold text-espresso text-sm">{currentOrder.items.length} items</p>
-                <p className="font-display font-bold text-espresso">${currentOrder.total.toFixed(2)}</p>
+                <p className="font-display font-bold text-espresso">₹{Math.round(currentOrder.total).toLocaleString("en-IN")}</p>
               </div>
               <Link href={`/order/${currentOrder.id}`} className="block w-full text-center bg-cream text-espresso py-3 rounded-full font-accent text-xs uppercase tracking-[0.15em] hover:bg-cream-dark transition-colors">
                 View Invoice

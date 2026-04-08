@@ -147,7 +147,7 @@ export function SearchModal({ isOpen, onClose }: { isOpen: boolean; onClose: () 
                           <p className="text-xs text-espresso/40 font-accent capitalize">{product.category}</p>
                         </div>
                         <div className="flex items-center gap-2">
-                          <span className="font-accent text-sm font-medium text-espresso">${product.price.toFixed(2)}</span>
+                          <span className="font-accent text-sm font-medium text-espresso">₹{product.price.toLocaleString("en-IN")}</span>
                           <ArrowRight size={14} className="text-espresso/20 group-hover:text-mocha transition-colors" />
                         </div>
                       </Link>
