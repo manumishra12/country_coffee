@@ -63,7 +63,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-5 sm:mt-8 text-sm sm:text-lg text-cream/60 max-w-md leading-relaxed"
+            className="mt-8 text-sm sm:text-lg text-cream/60 max-w-md leading-relaxed"
           >
             Hand-roasted in small batches, sourced from the world&apos;s finest
             farms. Experience coffee the way it was meant to be.
@@ -73,18 +73,18 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="mt-7 sm:mt-10 flex flex-wrap gap-3 sm:gap-4"
+            className="mt-10 flex flex-wrap gap-4"
           >
             <Link
               href="/shop"
-              className="group inline-flex items-center gap-3 bg-cream text-espresso px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-accent text-xs sm:text-sm uppercase tracking-[0.15em] hover:bg-latte transition-all duration-300"
+              className="group inline-flex items-center gap-3 bg-cream text-espresso px-8 py-4 rounded-full font-accent text-sm uppercase tracking-[0.15em] hover:bg-latte transition-all duration-300"
             >
               Shop Now
               <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
             </Link>
             <Link
               href="/about"
-              className="inline-flex items-center gap-3 border border-cream/30 text-cream px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-accent text-xs sm:text-sm uppercase tracking-[0.15em] hover:bg-cream hover:text-espresso transition-all duration-300"
+              className="inline-flex items-center gap-3 border border-cream/30 text-cream px-8 py-4 rounded-full font-accent text-sm uppercase tracking-[0.15em] hover:bg-cream hover:text-espresso transition-all duration-300"
             >
               Our Story
             </Link>
